@@ -25,4 +25,14 @@ public class UsersController {
         final var sid = UUID.randomUUID().toString();
         return new User(sid, user.getName(), user.getAge());
     }
+
+    @Put(uri="/{sid}", consumes=APPLICATION_JSON, produces=APPLICATION_JSON)
+    public User update(final String sid, @Body final User user) {
+        return new User(sid, user.getName(), user.getAge());
+    }
+
+    @Delete(uri="/{sid}", produces=APPLICATION_JSON)
+    public User delete(final String sid) {
+        return new User(sid, "Gory Yucsa", 66);
+    }
 }
