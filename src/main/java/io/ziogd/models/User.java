@@ -1,4 +1,4 @@
-package io.ziogd;
+package io.ziogd.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.micronaut.serde.annotation.Serdeable;

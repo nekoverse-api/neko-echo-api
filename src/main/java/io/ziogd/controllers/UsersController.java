@@ -1,4 +1,4 @@
-package io.ziogd;
+package io.ziogd.controllers;
 
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
+import io.ziogd.models.User;
 
 import java.util.List;
 import java.util.UUID;
