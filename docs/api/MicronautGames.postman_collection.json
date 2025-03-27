@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "d960e50a-a8f0-45e6-88f5-b67706961f7b",
+		"name": "Micronaut - Games",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "157309"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Gary Test\",\n    \"age\": 12\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3666/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3666",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3666/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3666",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUserBy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3666/api/v1/users/d6663e7f-6da4-4efe-b2fb-g544fecdb4e4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3666",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"d6663e7f-6da4-4efe-b2fb-g544fecdb4e4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Gary Info Test\",\n    \"age\": 12\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3666/api/v1/users/d6663e7f-6da4-4efe-b2fb-e544fecdb4e4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3666",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"d6663e7f-6da4-4efe-b2fb-e544fecdb4e4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3666/api/v1/users/d6663e7f-6da4-4efe-b2fb-g544fecdb4e4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3666",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"d6663e7f-6da4-4efe-b2fb-g544fecdb4e4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
