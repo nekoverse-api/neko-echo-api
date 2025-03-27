@@ -43,7 +43,7 @@
 							"response": []
 						},
 						{
-							"name": "GetUsers",
+							"name": "GetAll",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -64,7 +64,7 @@
 							"response": []
 						},
 						{
-							"name": "GetUserBy",
+							"name": "GetBy",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -86,7 +86,7 @@
 							"response": []
 						},
 						{
-							"name": "UpdateUser",
+							"name": "Update",
 							"request": {
 								"method": "PUT",
 								"header": [],
@@ -117,7 +117,7 @@
 							"response": []
 						},
 						{
-							"name": "DeleteUser",
+							"name": "Delete",
 							"request": {
 								"method": "DELETE",
 								"header": [],
