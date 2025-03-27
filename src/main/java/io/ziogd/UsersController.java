@@ -5,8 +5,8 @@ import io.micronaut.http.annotation.*;
 @Controller("/users")
 public class UsersController {
 
-    @Get(uri="/", produces="text/plain")
+    @Get(uri="/", produces="application/json")
     public String index() {
-        return "Example Response";
+        return "{ \"name\": \"Gary was Here!!!\" }";
     }
 }
