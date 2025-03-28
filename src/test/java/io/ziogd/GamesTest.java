@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 
 @MicronautTest
 class GamesTest {
-
   @Inject EmbeddedApplication<?> application;
 
   @Test
   void testItWorks() {
-     Assertions.assertTrue(application.isRunning());
+    Assertions.assertTrue(application.isRunning());
   }
 }

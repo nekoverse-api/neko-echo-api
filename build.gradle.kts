@@ -77,12 +77,12 @@ tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative"
     jdkVersion = "21"
 }
 
-//
-//spotless {
-//    java {
-//        importOrder()
-//        removeUnusedImports()
-//        googleJavaFormat()
-//    }
-//}
+spotless {
+    java {
+        targetExclude("build/**/*.java")
+        importOrder()
+        removeUnusedImports()
+        googleJavaFormat()
+    }
+}
 
