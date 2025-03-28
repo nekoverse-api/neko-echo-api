@@ -3,6 +3,7 @@ plugins {
     id("io.micronaut.application") version "4.4.4"
     id("io.micronaut.openapi") version "4.4.4"
     id("io.micronaut.aot") version "4.4.4"
+    id("com.diffplug.spotless") version "7.0.2"
 }
 
 version = "0.1"
@@ -76,4 +77,12 @@ tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative"
     jdkVersion = "21"
 }
 
+//
+//spotless {
+//    java {
+//        importOrder()
+//        removeUnusedImports()
+//        googleJavaFormat()
+//    }
+//}
 

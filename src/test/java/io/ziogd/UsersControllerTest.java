@@ -1,21 +1,22 @@
 package io.ziogd;
-import io.micronaut.http.HttpStatus;
-import io.micronaut.http.client.HttpClient;
-import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import org.junit.jupiter.api.Test;
-import io.micronaut.http.client.annotation.*;
-import jakarta.inject.Inject;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import io.micronaut.http.client.HttpClient;
+import io.micronaut.http.client.annotation.*;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
+import jakarta.inject.Inject;
+import org.junit.jupiter.api.Test;
 
 @MicronautTest
 public class UsersControllerTest {
 
-    @Inject
-    @Client("/")
-    HttpClient client;
+  @Inject
+  @Client("/")
+  HttpClient client;
 
-    @Test
-    public void testIndex() throws Exception {
-        // assertEquals(HttpStatus.OK, client.toBlocking().exchange("/api/v1/users").status());
-    }
+  @Test
+  public void testIndex() throws Exception {
+    // assertEquals(HttpStatus.OK, client.toBlocking().exchange("/api/v1/users").status());
+  }
 }
