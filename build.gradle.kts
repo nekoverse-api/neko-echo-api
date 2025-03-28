@@ -1,6 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.4.4"
+    id("io.micronaut.openapi") version "4.4.4"
     id("io.micronaut.aot") version "4.4.4"
 }
 
@@ -15,9 +16,14 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("io.micronaut.validation:micronaut-validation-processor")
 
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.swagger.core.v3:swagger-annotations")
+    implementation("io.micronaut.validation:micronaut-validation")
+    implementation("io.micronaut.security:micronaut-security")
 
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
@@ -29,21 +35,23 @@ dependencies {
 application {
     mainClass = "io.ziogd.Application"
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("21")
     targetCompatibility = JavaVersion.toVersion("21")
 }
-
 
 graalvmNative.toolchainDetection = false
 
 micronaut {
     runtime("netty")
     testRuntime("junit5")
+
     processing {
         incremental(true)
         annotations("io.ziogd.*")
     }
+
     aot {
         // Please review carefully the optimizations enabled below
         // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
@@ -55,6 +63,15 @@ micronaut {
         deduceEnvironment = true
         optimizeNetty = true
         replaceLogbackXml = true
+    }
+
+    openapi {
+        server(file("src/main/resources/library-definition.yml")) {
+            apiPackageName = "io.ziogd.games.api"
+            modelPackageName = "io.ziogd.games.model"
+            useReactive = false
+            useAuth = false
+        }
     }
 }
 

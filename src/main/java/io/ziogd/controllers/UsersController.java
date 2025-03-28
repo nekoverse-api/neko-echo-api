@@ -1,43 +1,42 @@
 package io.ziogd.controllers;
 
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Delete;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Put;
-import io.ziogd.models.User;
+import io.ziogd.games.api.UsersApi;
+import io.ziogd.games.model.User;
+import jakarta.validation.Valid;
 
 import java.util.List;
 import java.util.UUID;
 
-@Controller("/users")
-public class UsersController {
-    @Get(uri="/")
-    public List<User> getAll() {
-        final var user1 = new User(UUID.randomUUID().toString(), "Gary Ascuy", 22);
-        final var user2 = new User(UUID.randomUUID().toString(), "Gory Yucsa", 66);
+public class UsersController implements UsersApi {
+    @Override
+    public List<@Valid User> getAll() {
+        final var user1 = new User("Gary Ascuy", 22).sid(sid());
+        final var user2 = new User("Gory Yucsa", 66).sid(sid());
         return List.of(user1, user2);
     }
 
-    @Get(uri="/{sid}")
-    public User getBy(final String sid) {
-        return new User(sid, "Gory Yucsa", 66);
+    @Override
+    public User getBy(String sid) {
+        return new User("Gory Yucsa", 66).sid(sid);
     }
 
-    @Post(uri="/")
-    public User create(@Body final User user) {
-        final var sid = UUID.randomUUID().toString();
-        return new User(sid, user.getName(), user.getAge());
+    @Override
+    public User create(User user) {
+        return new User(user.getName(), user.getAge()).sid(sid());
     }
 
-    @Put(uri="/{sid}")
-    public User update(final String sid, @Body final User user) {
-        return new User(sid, user.getName(), user.getAge());
+    @Override
+    public User update(User user, String sidr) {
+        return null;
     }
 
-    @Delete(uri="/{sid}")
-    public User delete(final String sid) {
-        return new User(sid, "Gory Yucsa", 66);
+    @Override
+    public User delete(String sid) {
+        return new User("Gory Yucsa", 66).sid(sid);
+    }
+
+    private String sid() {
+        return UUID.randomUUID().toString();
     }
 }
+
