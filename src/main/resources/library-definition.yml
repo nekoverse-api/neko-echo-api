@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
-  description: This is a library API
+  description: This is a users API
   version: 1.0.0
-  title: Library
+  title: Users
   license:
     name: Apache-2.0
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
-  - name: books
-    description: Search for books and add new ones
+  - name: users
+    description: CRUD
 
 paths:
   /users:
