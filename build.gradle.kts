@@ -15,15 +15,11 @@ repositories {
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
-    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     annotationProcessor("io.micronaut.validation:micronaut-validation-processor")
 
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("io.micronaut.validation:micronaut-validation")
-    implementation("io.micronaut.security:micronaut-security")
 
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
