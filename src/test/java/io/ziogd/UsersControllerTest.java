@@ -1,5 +1,6 @@
 package io.ziogd;
 
+import static io.micronaut.http.HttpStatus.OK;
 import static org.junit.jupiter.api.Assertions.*;
 
 import io.micronaut.http.client.HttpClient;
@@ -17,6 +18,6 @@ public class UsersControllerTest {
 
   @Test
   public void testIndex() throws Exception {
-    // assertEquals(HttpStatus.OK, client.toBlocking().exchange("/api/v1/users").status());
+    assertEquals(OK, client.toBlocking().exchange("/api/v1/users").status());
   }
 }
