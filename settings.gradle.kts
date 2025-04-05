@@ -1,4 +1,4 @@
 
 
-rootProject.name="games"
+rootProject.name="neko-echo-api"
 
