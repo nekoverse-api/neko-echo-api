@@ -10,7 +10,7 @@ plugins {
     id("com.diffplug.spotless") version "7.0.2"
 }
 
-version = "0.0.3"
+version = "0.0.4"
 group = "io.nekoverse"
 
 repositories {
