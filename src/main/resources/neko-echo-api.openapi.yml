@@ -23,6 +23,11 @@ paths:
           schema:
             type: string
             minLength: 1
+        - name: args
+          in: query
+          schema:
+            type: object
+            additionalProperties: true
       responses:
         "200":
           description: Success
