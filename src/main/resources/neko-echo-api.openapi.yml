@@ -23,11 +23,6 @@ paths:
           schema:
             type: string
             minLength: 1
-        - name: args
-          in: query
-          schema:
-            type: object
-            additionalProperties: true
       responses:
         "200":
           description: Success
@@ -40,6 +35,31 @@ paths:
           "application/json":
             schema:
               $ref: "#/components/schemas/EchoResponse"
+
+    post:
+      tags:
+        - echos
+      summary: Post echo response
+      operationId: postBy
+      parameters:
+        - name: path
+          in: query
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/EchoResponse"
+        "400":
+          description: Bad Request
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/EchoResponse"
+
 
 components:
   schemas:
@@ -58,8 +78,15 @@ components:
           type: string
         args:
           type: object
-          additionalProperties:
-            type: string
+          additionalProperties: true
+        data:
+          type: object
+          additionalProperties: true
+        headers:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
       required:
         - sid
         - url
