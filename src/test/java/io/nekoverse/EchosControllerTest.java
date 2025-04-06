@@ -1,4 +1,4 @@
-package io.ziogd;
+package io.nekoverse;
 
 import static io.micronaut.http.HttpStatus.OK;
 import static org.junit.jupiter.api.Assertions.*;
