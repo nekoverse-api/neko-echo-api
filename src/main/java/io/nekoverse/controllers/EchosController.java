@@ -8,6 +8,7 @@ import io.nekoverse.echo.model.EchoResponse;
 import io.nekoverse.services.EchosService;
 import io.nekoverse.utils.Errors;
 import jakarta.inject.Inject;
+import java.util.Map;
 
 @Controller
 public class EchosController implements EchosApi {
@@ -19,11 +20,11 @@ public class EchosController implements EchosApi {
 
   @Override
   public EchoResponse getBy(String path) {
-    return echosService.buildResponse(path, getRequest());
+    return echosService.buildResponse(path, getRequest(), Map.of());
   }
 
   @Override
-  public EchoResponse postBy(String path) {
-    return echosService.buildResponse(path, getRequest());
+  public EchoResponse postBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
   }
 }

@@ -26,7 +26,8 @@ public class EchosService {
     return format(URL_FORMAT_TEMPLATE, echosConfig.getBaseUrl(), path);
   }
 
-  public EchoResponse buildResponse(final String path, HttpRequest<?> req) {
+  public EchoResponse buildResponse(
+      final String path, HttpRequest<?> req, Map<String, Object> body) {
     final var url = getUrl(path);
     final var method = req.getMethod().toString();
 
@@ -34,7 +35,7 @@ public class EchosService {
         .path(req.getPath())
         .method(method)
         .args(getQueryParams(req))
-        .data(getBody(req))
+        .data(body)
         .headers(getHeaders(req))
         .createdAt(OffsetDateTime.now(ZoneOffset.UTC).toString());
   }
@@ -48,10 +49,6 @@ public class EchosService {
           params.put(key.toLowerCase(), join(DELIMITER, value));
         });
     return params;
-  }
-
-  private Map<String, Object> getBody(HttpRequest<?> req) {
-    return Map.of();
   }
 
   private Map<String, Object> getHeaders(HttpRequest<?> req) {
