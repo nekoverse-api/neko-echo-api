@@ -27,4 +27,24 @@ public class EchosController implements EchosApi {
   public EchoResponse postBy(String path, Map<String, Object> body) {
     return echosService.buildResponse(path, getRequest(), body);
   }
+
+  @Override
+  public EchoResponse putBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
+  }
+
+  @Override
+  public EchoResponse patchBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
+  }
+
+  @Override
+  public EchoResponse deleteBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
+  }
+
+  @Override
+  public EchoResponse optionsBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
+  }
 }
