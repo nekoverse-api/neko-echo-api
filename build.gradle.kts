@@ -1,3 +1,7 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import io.micronaut.gradle.docker.MicronautDockerfile
+import io.micronaut.gradle.docker.NativeImageDockerfile
+
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.4.4"
@@ -46,7 +50,7 @@ micronaut {
 
     processing {
         incremental(true)
-        annotations("io.ziogd.*")
+        annotations("io.nekoverse.*")
     }
 
     aot {
@@ -70,9 +74,21 @@ micronaut {
     }
 }
 
+tasks.named<MicronautDockerfile>("dockerfile") {
+    exportPorts(3666)
+}
 
-tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
+tasks.named<DockerBuildImage>("dockerBuild") {
+    images.set(listOf("nekoverse:10.0.1"))
+}
+
+tasks.named<NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"
+    exportPorts(3666)
+}
+
+tasks.named<DockerBuildImage>("dockerBuildNative") {
+    images.set(listOf("nekoverse:10.0.0"))
 }
 
 spotless {
