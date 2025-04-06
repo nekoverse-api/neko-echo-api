@@ -43,5 +43,18 @@ components:
       description: Echo response used to test api tools
       type: object
       properties:
-        method: { type: string }
-      required: [ "method" ]
+        sid:
+          type: string
+        url:
+          type: string
+        path:
+          type: string
+        method:
+          type: string
+        args:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - sid
+        - url
