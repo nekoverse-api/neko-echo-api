@@ -1,14 +1,16 @@
 package io.nekoverse.services;
 
-import io.micronaut.context.annotation.Property;
+import static java.lang.System.getenv;
+import static java.util.Optional.ofNullable;
+
 import jakarta.inject.Singleton;
 
 @Singleton
 public class EchosConfig {
-  @Property(name = "io.nekoverse.base-url", defaultValue = "http://localhost:3666/api/v1")
-  private String baseUrl;
+  public static final String DEFAULT_BASE_URL = "https://echo.nekoverse.me/api/v1";
+  public static final String NEKO_ECHO_API_BASE_URL = "NEKO_ECHO_API_BASE_URL";
 
   public String getBaseUrl() {
-    return baseUrl;
+    return ofNullable(getenv(NEKO_ECHO_API_BASE_URL)).orElse(DEFAULT_BASE_URL);
   }
 }

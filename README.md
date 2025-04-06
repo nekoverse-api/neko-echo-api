@@ -57,6 +57,21 @@ export DOCKERHUB_USERNAME=""
 export DOCKERHUB_TOKEN=""
 ```
 
+## Production Mode
+
+**Run as a Container**
+```sh
+docker run --detach --rm -p 3666:3666 \
+  --env NEKO_ECHO_API_BASE_URL='https://echo.nekoverse.me/api/v1' \
+  --name 'neko-echo-api' \
+  nekoverse/neko-echo-api:latest
+```
+
+**Use**
+```sh
+curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
+```
+
 ## References
 
 - [User Guide](https://docs.micronaut.io/4.7.6/guide/index.html)
