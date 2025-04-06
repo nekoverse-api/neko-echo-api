@@ -18,6 +18,6 @@ public class EchosControllerTest {
 
   @Test
   public void testIndex() throws Exception {
-    assertEquals(OK, client.toBlocking().exchange("/api/v1/users").status());
+    assertEquals(OK, client.toBlocking().exchange("/api/v1/get").status());
   }
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 @MicronautTest
-class GamesTest {
+class EchosTest {
   @Inject EmbeddedApplication<?> application;
 
   @Test
