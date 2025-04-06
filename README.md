@@ -1,21 +1,39 @@
-## Micronaut 4.7.6 Documentation
+# Neko Echo Api
+
+Neko Echo Api is a simple web service that receives HTTP requests and responds by returning the same data sent by the client.
+It supports http methods like GET, POST, PUT, DELETE, PATCH, and OPTIONS, making it ideal for testing and debugging api tools.
+
+### Local Development
+
+**Install Dependencies Java 21 with sdkman**
+
+```sh
+curl -s "https://get.sdkman.io" | bash
+sdk install java 21.0.6-amzn
+```
+
+**Build**
+
+```sh
+./gradlew build 
+```
+
+**Run in watch mode**
+```sh
+./gradlew run -t 
+```
+
+**Use**
+```sh
+curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
+```
+
+### References
 
 - [User Guide](https://docs.micronaut.io/4.7.6/guide/index.html)
 - [API Reference](https://docs.micronaut.io/4.7.6/api/index.html)
 - [Configuration Reference](https://docs.micronaut.io/4.7.6/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
----
-
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
 - [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
 - [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-## Feature micronaut-aot documentation
-
 - [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
-
-
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
