@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  description: Nekoverse Echo API
+  version: 1.0.0
+  title: Neko Echo Api
+  license:
+    name: MIT
+    url: "https://github.com/nekoverse-api/neko-echo-api/blob/main/LICENSE"
+tags:
+  - name: echo
+    description: CRUD
+
+paths:
+  /{path}:
+    get:
+      tags:
+        - echos
+      summary: Get echo response
+      operationId: getBy
+      parameters:
+        - name: path
+          in: query
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/EchoResponse"
+        "400":
+          description: Bad Request
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/EchoResponse"
+
+components:
+  schemas:
+    EchoResponse:
+      title: Echo Response
+      description: Echo response used to test api tools
+      type: object
+      properties:
+        method: { type: string }
+      required: [ "method" ]

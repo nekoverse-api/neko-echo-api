@@ -63,9 +63,9 @@ micronaut {
     }
 
     openapi {
-        server(file("src/main/resources/library-definition.yml")) {
-            apiPackageName = "io.ziogd.games.api"
-            modelPackageName = "io.ziogd.games.model"
+        server(file("src/main/resources/neko-echo-api.openapi.yml")) {
+            apiPackageName = "io.nekoverse.echo.api"
+            modelPackageName = "io.nekoverse.echo.model"
             useReactive = false
             useAuth = false
         }
