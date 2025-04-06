@@ -3,7 +3,7 @@
 Neko Echo Api is a simple web service that receives HTTP requests and responds by returning the same data sent by the client.
 It supports http methods like GET, POST, PUT, DELETE, PATCH, and OPTIONS, making it ideal for testing and debugging api tools.
 
-### Local Development
+## Local Development
 
 **Install Dependencies Java 21 with sdkman**
 
@@ -29,7 +29,7 @@ sdk install java 21.0.6-amzn
 curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
 ```
 
-### Build & Publish Docker Image
+## Build & Publish Docker Image
 
 **Setup Credentials**
 
@@ -57,7 +57,7 @@ export DOCKERHUB_USERNAME=""
 export DOCKERHUB_TOKEN=""
 ```
 
-### References
+## References
 
 - [User Guide](https://docs.micronaut.io/4.7.6/guide/index.html)
 - [API Reference](https://docs.micronaut.io/4.7.6/api/index.html)
