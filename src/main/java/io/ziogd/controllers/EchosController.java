@@ -8,7 +8,6 @@ import jakarta.inject.Inject;
 
 @Controller
 public class EchosController implements EchosApi {
-
   @Inject private EchosService echosService;
 
   @Override
