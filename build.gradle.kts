@@ -10,8 +10,8 @@ plugins {
     id("com.diffplug.spotless") version "7.0.2"
 }
 
-version = "0.1"
-group = "io.ziogd"
+version = "0.0.1"
+group = "io.nekoverse"
 
 repositories {
     mavenCentral()
@@ -74,12 +74,21 @@ micronaut {
     }
 }
 
+docker {
+    registryCredentials {
+        username = System.getenv("DOCKERHUB_USERNAME")
+        password = System.getenv("DOCKERHUB_TOKEN")
+    }
+}
+
 tasks.named<MicronautDockerfile>("dockerfile") {
     exportPorts(3666)
 }
 
 tasks.named<DockerBuildImage>("dockerBuild") {
-    images.set(listOf("nekoverse:10.0.1"))
+    images.set(listOf(
+        "nekoverse/neko-echo-api:temurin-${version}",
+        "nekoverse/neko-echo-api:temurin-latest"))
 }
 
 tasks.named<NativeImageDockerfile>("dockerfileNative") {
@@ -88,7 +97,10 @@ tasks.named<NativeImageDockerfile>("dockerfileNative") {
 }
 
 tasks.named<DockerBuildImage>("dockerBuildNative") {
-    images.set(listOf("nekoverse:10.0.0"))
+    images.set(listOf(
+        "nekoverse/neko-echo-api:native-${version}",
+        "nekoverse/neko-echo-api:${version}",
+        "nekoverse/neko-echo-api:latest"))
 }
 
 spotless {

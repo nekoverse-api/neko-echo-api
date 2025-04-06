@@ -19,6 +19,7 @@ sdk install java 21.0.6-amzn
 ```
 
 **Run in watch mode**
+
 ```sh
 ./gradlew run -t 
 ```
@@ -26,6 +27,34 @@ sdk install java 21.0.6-amzn
 **Use**
 ```sh
 curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
+```
+
+### Build & Publish Docker Image
+
+**Setup Credentials**
+
+```sh
+read -s DOCKERHUB_USERNAME
+read -s DOCKERHUB_TOKEN
+```
+
+**Build Docker Image**
+
+```sh
+./gradlew dockerBuildNative
+```
+
+**Push Docker Image**
+
+```sh
+./gradlew dockerPushNative
+```
+
+**Very Important Clean Credentials**
+
+```she
+export DOCKERHUB_USERNAME=""
+export DOCKERHUB_TOKEN=""
 ```
 
 ### References
@@ -37,3 +66,4 @@ curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
 - [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
 - [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
 - [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+- [Docker Plugin](https://guides.micronaut.io/latest/micronaut-push-to-oracle-cloud-container-registry-gradle-java.html)
