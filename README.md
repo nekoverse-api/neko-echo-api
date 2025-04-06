@@ -29,6 +29,10 @@ sdk install java 21.0.6-amzn
 curl "http://localhost:3666/api/v1/test?limit=100&skip=50&q=test" | jq
 ```
 
+## Releases Docker Images 
+
+Create a GitHub release it triggers the action to build and push image to DockerHub
+
 ## Build & Publish Docker Image
 
 **Setup Credentials**
