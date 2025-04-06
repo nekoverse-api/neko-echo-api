@@ -105,6 +105,18 @@ sudo systemctl restart nginx
 sudo systemctl status nginx.service
 ```
 
+## Home Page Details
+
+```sh
+cd /usr/share/nginx/html/
+sudo curl --output favicon.ico https://home.nekoverse.me/favicon.ico
+sudo nano index.html 
+```
+
+**Notes**
+
+- Delete all content from index and copy `nginx/index.html`
+
 ## References
 
 - https://fedoraproject.org/wiki/Nginx
