@@ -10,7 +10,7 @@ plugins {
     id("com.diffplug.spotless") version "7.0.2"
 }
 
-version = System.getenv().getOrDefault("NEKO_ECHO_API_VERSION", "1.0.0-SNAPSHOT")
+version = "0.0.3"
 group = "io.nekoverse"
 
 repositories {
