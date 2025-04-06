@@ -1,4 +1,4 @@
-package io.ziogd.services;
+package io.nekoverse.services;
 
 import io.nekoverse.echo.model.EchoResponse;
 import jakarta.inject.Singleton;

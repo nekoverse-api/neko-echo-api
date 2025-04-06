@@ -1,4 +1,4 @@
-package io.ziogd;
+package io.nekoverse;
 
 import io.micronaut.runtime.Micronaut;
 

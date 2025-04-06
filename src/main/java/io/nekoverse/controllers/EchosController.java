@@ -1,9 +1,9 @@
-package io.ziogd.controllers;
+package io.nekoverse.controllers;
 
 import io.micronaut.http.annotation.Controller;
 import io.nekoverse.echo.api.EchosApi;
 import io.nekoverse.echo.model.EchoResponse;
-import io.ziogd.services.EchosService;
+import io.nekoverse.services.EchosService;
 import jakarta.inject.Inject;
 
 @Controller
