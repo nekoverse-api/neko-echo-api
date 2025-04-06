@@ -19,8 +19,8 @@ public class EchosController implements EchosApi {
   }
 
   @Override
-  public EchoResponse getBy(String path) {
-    return echosService.buildResponse(path, getRequest(), Map.of());
+  public EchoResponse getBy(String path, Map<String, Object> body) {
+    return echosService.buildResponse(path, getRequest(), body);
   }
 
   @Override

@@ -18,11 +18,12 @@ paths:
       summary: Get echo response
       operationId: getBy
       parameters:
-        - name: path
-          in: query
-          schema:
-            type: string
-            minLength: 1
+        - $ref: "#/components/parameters/path"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HashMapObject"
       responses:
         "200":
           description: Success
@@ -30,46 +31,51 @@ paths:
             "application/json":
               schema:
                 $ref: "#/components/schemas/EchoResponse"
-        "400":
-          description: Bad Request
-          "application/json":
-            schema:
-              $ref: "#/components/schemas/EchoResponse"
-
+        "default":
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/EchoResponse"
     post:
       tags:
         - echos
       summary: Post echo response
       operationId: postBy
       parameters:
-        - name: path
-          in: query
-          schema:
-            type: string
-            minLength: 1
+        - $ref: "#/components/parameters/path"
       requestBody:
-        description: Optional body request param
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: true
+              $ref: "#/components/schemas/HashMapObject"
       responses:
         "200":
-          description: Success
           content:
             "application/json":
               schema:
                 $ref: "#/components/schemas/EchoResponse"
-        "400":
-          description: Bad Request
-          "application/json":
-            schema:
-              $ref: "#/components/schemas/EchoResponse"
-
+        "default":
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/EchoResponse"
 
 components:
+  parameters:
+    path:
+      name: path
+      in: query
+      schema:
+        type: string
+        minLength: 1
+
+  responses:
+
   schemas:
+    HashMapObject:
+      type: object
+      additionalProperties: true
+
     EchoResponse:
       title: Echo Response
       description: Echo response used to test api tools
