@@ -32,6 +32,7 @@ public class EchosService {
     final var method = req.getMethod().toString();
 
     return new EchoResponse(getRandomSid(), url)
+         .version("neko-echo-api@1.2.0")
         .path(req.getPath())
         .method(method)
         .args(getQueryParams(req))
