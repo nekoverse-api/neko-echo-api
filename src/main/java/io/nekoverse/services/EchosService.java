@@ -52,12 +52,15 @@ public class EchosService {
   }
 
   private Map<String, Object> getHeaders(HttpRequest<?> req) {
-    final var requestHeaders = req.getHeaders().asMap();
+    final var ignoredHeaders = Set.of("x-forwarded-for", "x-forwarded-proto", "x-real-ip");
 
+    final var requestHeaders = req.getHeaders().asMap();
     final var headers = new HashMap<String, Object>();
     requestHeaders.forEach(
         (key, value) -> {
-          headers.put(key.toLowerCase(), join(DELIMITER, value));
+          if (!ignoredHeaders.contains(key.toLowerCase())) {
+            headers.put(key.toLowerCase(), join(DELIMITER, value));
+          }
         });
     return headers;
   }
